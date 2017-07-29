@@ -31,7 +31,6 @@ public class AnalysisController {
 
         JSONArray json = new JSONArray(jsonString);
         JSONObject tempObject = json.getJSONObject(0);
-
         JSONObject jsonObject = tempObject.getJSONObject("faceAttributes").getJSONObject("emotion");
 
         Long emotion = analysisService.emotionAnalysis(jsonObject);
