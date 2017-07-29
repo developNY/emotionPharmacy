@@ -81,7 +81,7 @@ public class Webview {
                                 "조금 짜증났어요!", "짜증났어요", "혐오감이 극도에 달했네요", "지구 뿌셔 우주 뿌셔 !"};
 
         model.addAttribute("emotion", emotion);
-        model.addAttribute("emotionText", emotionText);
+        model.addAttribute("emotionText", emotionText[new Integer(emotion.intValue())]);
         /*if(emotionId)
             model.add(emotionId) --> emotionId 저장
         */
