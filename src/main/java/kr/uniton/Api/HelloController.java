@@ -7,6 +7,7 @@ import kr.uniton.Domain.faceApi.FaceApiService;
 import kr.uniton.Domain.file.FileService;
 import kr.uniton.Domain.menu.Menu;
 import kr.uniton.Domain.menu.MenuService;
+import kr.uniton.Domain.photo.Photo;
 import kr.uniton.Domain.photo.PhotoService;
 import kr.uniton.Domain.playList.PlayList;
 import kr.uniton.Domain.playList.PlayListService;
@@ -73,7 +74,7 @@ public class HelloController {
                             @ApiParam("이미지 URL") @RequestParam String imageUrl)
     {
         try {
-            menuService.save(Menu.build(emotion, name, imageUrl));
+            photoService.save(Photo.build(emotion, name, imageUrl));
             return "save success";
         } catch (Exception e) {
             e.printStackTrace();

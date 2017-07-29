@@ -15,4 +15,6 @@ public class PhotoService {
     private PhotoRepository photoRepository;
 
     public List<Photo> findByEmotion(Long emotion){ return photoRepository.findByEmotion(emotion); }
+
+    public void save(Photo photo){ photoRepository.save(photo); }
 }
