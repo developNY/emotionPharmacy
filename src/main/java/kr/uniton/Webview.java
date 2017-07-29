@@ -46,9 +46,8 @@ public class Webview {
             @RequestParam("multipartFile") MultipartFile multipartFile){
         return fileService.save(multipartFile);
     }
-    @RequestMapping(value = "/ajax", method = RequestMethod.POST)
-    public String fileUpload(){
-    	
-        return "/ajax";
+    @RequestMapping(value = "/emot", method = RequestMethod.GET)
+    public String emotionView(){
+        return "/emotion";
     }
 }

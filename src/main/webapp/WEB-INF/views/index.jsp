@@ -19,8 +19,6 @@
 	<!--<iframe style="display:none;" width="560" src="https://www.youtube.com/embed/KISgCXPdrFQ?autoplay=1" height="200" frameborder="0" allowfullscreen></iframe>-->
 	</form>
 	<div id="mv">
-	
-	
 	</div>
 	<script>
 	//사진 업로드 및 미리보기
@@ -39,6 +37,7 @@
 		$("#pic").change(function(){
 			readURL(this);
 		});
+	});
 		//사진 분석 이동
 		/*$("#test").change(function(){
 			var a = $("input[name=a]").val();
@@ -57,12 +56,13 @@
 			});*/
 			
 			//$("#mv").html('<iframe width="560" src="https://www.youtube.com/embed/KISgCXPdrFQ?autoplay=1" height="400" frameborder="0" allowfullscreen></iframe>');
-			
-			/*$.ajax({
-				url : "test.html",
-				//enctype : "multipart/form-data",
-				//data : picname,
-				//dataType : 'JSON',
+		//$("#pic").change(function(){
+			//$.ajax({
+				//alert($(this).val());
+			//}
+				/*url : "save",
+				enctype : "multipart/form-data",
+				data : picname,
 				success : function(data){  //받아온 data(json)
 					//$("#mv").load();
 					alert("dddd");
@@ -70,7 +70,11 @@
 				error : function(){
 					alert("에러발생!");
 				}
-			});*/
+			});
+		})*/
+		
+		
+			
 			//$("#video").src += "https://www.youtube.com/embed/KISgCXPdrFQ?autoplay=1";
 			//$("#video").(display:"inline-block");
 			//$("#video").show();
@@ -89,7 +93,7 @@
 			$("#video").(display:"inline-block");
 			$("#video").show();
 		}); */
-	});
+	
 	</script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package kr.uniton.Api;
+/*package kr.uniton.Api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,9 +11,9 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import kr.uniton.Domain.file.FileService;
 
-/**
+*//**
  * Created by iljun on 2017-07-29.
- */
+ *//*
 @Controller
 @RequestMapping("/api/v1/file")
 public class FileController {
@@ -29,3 +29,4 @@ public class FileController {
         return fileService.save(multipartFile);
     }
 }
+*/
