@@ -1,8 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+    <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE>
 <html>
 <head>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
     <style>
         .back {
             background-image: url('KakaoTalk_20170730_015138729.png');
@@ -57,9 +58,17 @@
 </div>
 <div class="bottom_img">
     <div class="a">
-        <img src="main_button-01.png" class="center"/>
+        <img src="main_button-01.png" class="center" id="move"/>
     </div>
 </div>
+<script>
+    $(function(){
+        $('#move').click(function(){
+            var url = "picture";
+            location.href = url;
+        });
+    });
+</script>
 </body>
 </html>
 

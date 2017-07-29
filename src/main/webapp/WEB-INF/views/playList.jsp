@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -16,7 +18,7 @@
         box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.21);
     }
     .layer {
-        font-family: AppleSDGothicNeoI;
+        font-family: .AppleSDGothicNeoI;
         font-size: 12px;
         text-align: center;
         color: #2046f2;
@@ -45,36 +47,29 @@
             </div>
         </div>
     </div>
-    <div class="row youtube">
-        <iframe src="" style="width:inherit; position: absolute; height:inherit;"></iframe>
-    </div>
-    <div class="row">
-        <div class="list">
-            <table>
-                <tbody>
-                <tr>
-                    <td>이미지</td>
-                    <td class="trs">사진</td>
-                </tr>
-                <tr>
-                    <td>이미지</td>
-                    <td class="trs">사진</td>
-                </tr>
-                <tr>
-                    <td>이미지</td>
-                    <td class="trs">사진</td>
-                </tr>
-                <tr>
-                    <td>이미지</td>
-                    <td class="trs">사진</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="row">
+    
+    <div id="presc">
 
-    </div>
+    	<c:forEach items="${playlist}" var="item" varStatus="it">
+    	<c:if test="${it.index eq 0}">
+		    <iframe id="ytb" width="600" src="${item.youtubeUrl}?autoplay=1" height="400" frameborder="0" allowfullscreen></iframe>
+    	
+	</br>
+	<p>sdasd</p>
+	<table cellpadding="0" border="1" cellpadding="0">
+		<colgroup>
+			<col width="50px">
+			<col width="350px">
+		</colgroup>
+		</c:if>
+		<tr>
+			<td><a href="${item.youtubeUrl}"><img src="${item.imageUrl}"></a></td>
+			<td style="background-color: #333333; color: white;"><a href="${item.youtubeUrl}">${item.title} ^^ ${item.artist}</a></td>
+		</tr>
+		</c:forEach>
+	</table>
+	</div>
 </div>
 </body>
+
 </html>

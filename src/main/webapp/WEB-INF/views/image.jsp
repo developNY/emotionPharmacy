@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <head>
     <title>Bootstrap Example</title>
@@ -61,17 +62,12 @@
         <img src="logo.png" style="width:100%">
         </br>
         <div class="row">
+            <c:forEach var="image" items="${photolist}">
             <div class="col-sm-4">
-                <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+                <img src="${image.imageUrl}" class="img-responsive" style="width:100%" alt="Image">
                 </br>
             </div>
-            <div class="col-sm-4">
-                <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-            </div>
-            </br>
-            <div class="col-sm-4">
-                <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-            </div>
+        </c:forEach>
             <div class="oo">
                 <center><p>기분이 나아지셨나요?
                     또 놀러오세요

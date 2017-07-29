@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -90,7 +91,7 @@
                 <div class="xxxxx">
                     당신의 기분은 지금 </br> <strong>${emotionText}</strong>
                 </div>
-                <div>
+                <div id="choice">
                     <c:choose>
                         <c:when test="${n == 0}">
                             <img src="prescription_button_food.png" width="100%" height="25%">
@@ -114,10 +115,18 @@
             </div>
         </div>
     </div>
-
+    <input type="hidden"value="${emotion}" id="emotionId"/>
+    <input type="hidden" value="${n}" id="n"/>
 </div>
 <script>
-
+    $(function(){
+        $('#choice').click(function(){
+            var emotion = $('#emotionId').val();
+            var n = $('#n').val();
+            var url = "result?emotion="+emotion+"&n="+n;
+            location.href = url;
+        });
+    });
 </script>
 </body>
 </html>
