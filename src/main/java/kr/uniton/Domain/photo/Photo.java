@@ -24,7 +24,4 @@ public class Photo {
 
     @Column(name = "emotion")
     private Long emotion;
-
-    @Column(name = "keyword")
-    private String keyWord;
 }
