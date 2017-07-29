@@ -39,9 +39,7 @@ public class AnalysisController {
 
     @RequestMapping(value = "/analysisPost", method = RequestMethod.POST)
     @ApiOperation(value = "analysisPost", notes = "analysis Face")
-
- public @ResponseBody Long analysisPOST(@RequestBody String faceImageUrl) throws JSONException
-
+    public @ResponseBody Long analysisPOST(@RequestBody String faceImageUrl, Model model) throws JSONException
     {
         String jsonString = faceApiService.faceAnalysis(faceImageUrl);
 
@@ -52,6 +50,7 @@ public class AnalysisController {
         Long emotion = analysisService.emotionAnalysis(jsonObject);
 
         int n = (int)(Math.random() * 3);
+
         if(n == 0){
             Menu menu = menuService.findByEmotion(emotion);
             model.addAttribute("menu",menu);
@@ -65,8 +64,8 @@ public class AnalysisController {
             model.addAttribute("musicNum", musicNum);
         }
 
+        return null;
         // Double resultHappiness = jsonObject.getDouble("happiness");
 
-        return emotion;
     }
 }
