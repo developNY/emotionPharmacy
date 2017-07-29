@@ -52,7 +52,7 @@
 
     	<c:forEach items="${playlist}" var="item" varStatus="it">
     	<c:if test="${it.index eq 0}">
-		<iframe id="ytb" width="600" src="${item[it.index][youtubeUrl]}?autoplay=1" height="400" frameborder="0" allowfullscreen></iframe>
+		    <iframe id="ytb" width="600" src="${item.youtubeUrl}?autoplay=1" height="400" frameborder="0" allowfullscreen></iframe>
     	
 	</br>
 	<p>sdasd</p>
@@ -71,4 +71,5 @@
 	</div>
 </div>
 </body>
+
 </html>

@@ -92,9 +92,8 @@ public class Webview {
     }
 
     @RequestMapping(value = "/result", method = RequestMethod.GET)
-    public String result(@RequestParam Long emotion, Model model){
+    public String result(@RequestParam Long emotion, @RequestParam int n, Model model){
 
-        int n = (int) (Math.random() * 3);
         if(n == 0){
             List<Menu> menulist = menuService.findByEmotion(emotion);
             model.addAttribute("menulist", menulist);
