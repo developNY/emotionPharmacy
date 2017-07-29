@@ -30,6 +30,7 @@ public class FaceApiService {
     public String faceAnalysis(String faceImageUrl){
         HttpClient httpclient = new DefaultHttpClient();
         String jsonString = null;
+        JSONObject jso = null;
         try{
             URIBuilder builder = new URIBuilder(uriBase);
 
