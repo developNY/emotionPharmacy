@@ -69,6 +69,7 @@
                     ~~~~~~~<br/>
                     ~~~~~~<br/>
                 </div>
+                <a href="picture">진단 받으시겠어요?</a>
             </div>
         </div>
         <div class="row">

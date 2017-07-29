@@ -76,7 +76,7 @@
 			</div>
 			<div class="row">
 				<div class="Combined-Shape top_content">
-
+				<input type="button">
 				</div>
 			</div>
 			<div class="row">
@@ -90,13 +90,12 @@
 			<div class="row">
 				<div class="bottom_content">
 					<div class="btn">
-						<input type="submit" value="분석을 시작합니다.">
+						<input type="submit" value="감정 분석">
 					</div>
 				</div>
 			</div>
 		</div>
 	</form>
-
 	<div id="mv">
 	</div>
 	<script>
@@ -111,68 +110,20 @@
 			reader.readAsDataURL(input.files[0]);
 		}
 	}
-
 	$(function(){
+
+		$("#picupload").submit(function(){
+			var pv = $("#pic").val();
+			if(pv==""){
+				alert("사진을 등록해 주세요^^");				
+				return false;
+			}
+		});
+		
 		$("#pic").change(function(){
 			readURL(this);
 		});
 	});
-		//사진 분석 이동
-		/*$("#test").change(function(){
-			var a = $("input[name=a]").val();
-			//사진 분석 사진업로드
-			$.ajax({
-				url : "/save",
-				enctype : "multipart/form-data",
-				data : a,
-				success : function(data){  //받아온 data(json)
-					console.log(data);
-
-				},
-				error : function(){
-					alert("에러발생!");
-				}
-			});*/
-			
-			//$("#mv").html('<iframe width="560" src="https://www.youtube.com/embed/KISgCXPdrFQ?autoplay=1" height="400" frameborder="0" allowfullscreen></iframe>');
-		//$("#pic").change(function(){
-			//$.ajax({
-				//alert($(this).val());
-			//}
-				/*url : "save",
-				enctype : "multipart/form-data",
-				data : picname,
-				success : function(data){  //받아온 data(json)
-					//$("#mv").load();
-					alert("dddd");
-				},
-				error : function(){
-					alert("에러발생!");
-				}
-			});
-		})*/
-		
-		
-			
-			//$("#video").src += "https://www.youtube.com/embed/KISgCXPdrFQ?autoplay=1";
-			//$("#video").(display:"inline-block");
-			//$("#video").show();
-		//});
-		
-		/* $("#picupload").submit(function(e){
-			var picname = $("#pic").val();
-			console.log(picname);
-			$.ajax({
-				url : //업로드경로 '',
-				data : ,
-				success : function(){
-				}
-			});
-			$("#video").src += "https://www.youtube.com/embed/KISgCXPdrFQ?autoplay=1";
-			$("#video").(display:"inline-block");
-			$("#video").show();
-		}); */
-	
 	</script>
 
 </body>

@@ -39,16 +39,16 @@ public class Webview {
         return "/home";
     }
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    @RequestMapping(value = "/picture", method = RequestMethod.GET)
     public String index(){
-        return "/index";
+        return "/picture";
     }
     
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String save(@RequestParam("multipartFile") MultipartFile multipartFile, Model model){
         String emotionId = fileService.save(multipartFile);
         /*if(emotionId)
-            model.add(emotionId) --> emotionId 저장
+            model.add(emotionId) --> emotionId 저장 //받는값 emotionid, emotiontxt
         */
         return "/status";
     }

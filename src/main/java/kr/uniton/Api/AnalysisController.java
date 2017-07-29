@@ -45,13 +45,9 @@ public class AnalysisController {
     @RequestMapping(value = "/analysisPost", method = RequestMethod.POST)
     @ApiOperation(value = "analysisPost", notes = "analysis Face")
 
-<<<<<<< HEAD
- public @ResponseBody Long analysisPOST(@RequestBody String faceImageUrl, Model model) throws JSONException
 
-    {
-=======
+
     public @ResponseBody Long analysisPOST(@RequestBody String faceImageUrl, Model model) throws JSONException {
->>>>>>> 69a304c05f41b322c058638178cd61e57304a0a9
         String jsonString = faceApiService.faceAnalysis(faceImageUrl);
 
         JSONArray json = new JSONArray(jsonString);
