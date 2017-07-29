@@ -30,6 +30,7 @@ public class FaceApiService {
     public String test(){
         HttpClient httpclient = new DefaultHttpClient();
         String jsonString = null;
+        JSONObject jso = null;
         try{
             URIBuilder builder = new URIBuilder(uriBase);
 
@@ -47,7 +48,7 @@ public class FaceApiService {
             request.setHeader("Ocp-Apim-Subscription-Key", key);
 
             // Request body.
-            StringEntity reqEntity = new StringEntity("{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}");
+            StringEntity reqEntity = new StringEntity("{\"url\":\"http://res.cloudinary.com/uniton/image/upload/v1501306967/dl7mvubiv66lp1hi9ab1.jpg\"}");
             request.setEntity(reqEntity);
 
             // Execute the REST API call and get the response entity.
@@ -60,6 +61,7 @@ public class FaceApiService {
                 System.out.println("REST Response:\n");
 
                 jsonString = EntityUtils.toString(entity).trim();
+
                 if (jsonString.charAt(0) == '[') {
                     JSONArray jsonArray = new JSONArray(jsonString);
                     System.out.println(jsonArray.toString(2));

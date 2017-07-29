@@ -2,6 +2,8 @@ package kr.uniton.Api;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import kr.uniton.Domain.faceApi.FaceApiService;
+import kr.uniton.Domain.file.FileService;
 import kr.uniton.Domain.menu.Menu;
 import kr.uniton.Domain.menu.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,9 @@ public class HelloController {
     @Autowired
     private MenuService menuService;
 
+    @Autowired
+    private FaceApiService faceApiService;
+
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     @ApiOperation(value = "난 누군가" ,notes = "여긴 어딘가")
     public String index(){
@@ -35,5 +40,8 @@ public class HelloController {
         return menuService.test();
     }
 
-
+    @RequestMapping(value = "/apiTest", method = RequestMethod.GET)
+    public String apiTest(){
+        return faceApiService.test();
+    }
 }

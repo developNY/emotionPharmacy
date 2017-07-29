@@ -24,7 +24,7 @@ public class FileService {
     public String save(MultipartFile multipartFile){
         Map<String, String> uploadInfo = upload(multipartFile);
 
-        return uploadInfo.get("objecKey");
+        return uploadInfo.get("url");
     }
 
     private Map<String, String> upload(MultipartFile multipartFile) {
