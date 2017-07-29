@@ -25,6 +25,17 @@ public class Photo {
     @Column(name = "emotion")
     private Long emotion;
 
-    @Column(name = "keyword")
-    private String keyWord;
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "imageUrl")
+    private String imageUrl;
+
+    public static Photo build(Long emotion, String name, String imageUrl) {
+        return Photo.builder()
+                .emotion(emotion)
+                .name(name)
+                .imageUrl(imageUrl)
+                .build();
+    }
 }
