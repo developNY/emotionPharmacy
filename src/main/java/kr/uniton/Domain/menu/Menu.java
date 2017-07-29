@@ -29,4 +29,12 @@ public class Menu {
 
     @Column(name = "imageUrl")
     private String imageUrl;
+
+    public static Menu build(Long emotion, String name, String imageUrl) {
+        return Menu.builder()
+                .emotion(emotion)
+                .name(name)
+                .imageUrl(imageUrl)
+                .build();
+    }
 }
