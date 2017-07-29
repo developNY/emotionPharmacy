@@ -16,7 +16,7 @@
         box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.21);
     }
     .layer {
-        font-family: .AppleSDGothicNeoI;
+        font-family: AppleSDGothicNeoI;
         font-size: 12px;
         text-align: center;
         color: #2046f2;
