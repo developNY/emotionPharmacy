@@ -9,6 +9,7 @@ import kr.uniton.Domain.menu.Menu;
 import kr.uniton.Domain.menu.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,22 +34,35 @@ public class Webview {
     @Autowired
     private FileService fileService;
     
-    
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String home(){
+        return "/home";
+    }
+
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index(){
         return "/index";
     }
     
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    @ApiOperation(value = "사진저장 api" ,notes = "사진저장 api")
-    public String save(
-            @ApiParam("사진 파일")
-            @RequestParam("multipartFile") MultipartFile multipartFile){
-        return fileService.save(multipartFile);
+    public String save(@RequestParam("multipartFile") MultipartFile multipartFile, Model model){
+        String emotionId = fileService.save(multipartFile);
+        /*if(emotionId)
+            model.add(emotionId) --> emotionId 저장
+        */
+        return "/status";
     }
-    @RequestMapping(value = "/ajax", method = RequestMethod.POST)
-    public String fileUpload(){
-    	
-        return "/ajax";
+
+    @RequestMapping(value = "result", method = RequestMethod.GET)
+    public String result(Model model){
+
+        //if(model.==1)
+           // return "playList.jsp";
+        //else if(model==?)
+        //return "/menu.jsp";
+        //else
+        // return "image.jsp";
+            return "/menu.jsp";
     }
+
 }
