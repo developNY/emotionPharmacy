@@ -6,6 +6,7 @@ import kr.uniton.Domain.analysisApi.AnalysisService;
 import kr.uniton.Domain.faceApi.FaceApiService;
 import org.json.JSONObject;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,7 +26,7 @@ public class AnalysisController {
 
     @RequestMapping(value = "/analysisPost", method = RequestMethod.POST)
     @ApiOperation(value = "analysisPost", notes = "analysis Face")
-    public @ResponseBody Long analysisPOST(@RequestBody String faceImageUrl)
+    public @ResponseBody Long analysisPOST(@RequestBody String faceImageUrl) throws JSONException
     {
         String jsonString = faceApiService.faceAnalysis(faceImageUrl);
 
