@@ -93,6 +93,8 @@ public class Webview {
 
         int n = (int)(Math.random() * 3);
 
+        n = 1;
+
         if(n == 0){
             List<Menu> menulist = menuService.findByEmotion(emotion);
             model.addAttribute("menulist", menulist);

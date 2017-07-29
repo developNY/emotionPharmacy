@@ -66,7 +66,7 @@
                 <div class="xxxx">
                 </div>
                 <div class="icon">
-
+                    <a href="http://localhost:8082/result?emotion=${ emotion }">hihihi</a>
                 </div>
             </div>
             <div class="row">
