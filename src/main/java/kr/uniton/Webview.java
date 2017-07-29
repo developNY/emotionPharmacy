@@ -13,6 +13,7 @@ import kr.uniton.Domain.photo.PhotoService;
 import kr.uniton.Domain.playList.PlayList;
 import kr.uniton.Domain.playList.PlayListService;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -55,13 +56,13 @@ public class Webview {
         return "/home";
     }
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    @RequestMapping(value = "/picture", method = RequestMethod.GET)
     public String index(){
-        return "/index";
+        return "/picture";
     }
     
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String save(@RequestParam("multipartFile") MultipartFile multipartFile, Model model){
+    public String save(@RequestParam("multipartFile") MultipartFile multipartFile, Model model) throws JSONException{
 
         String faceImageUrl = fileService.save(multipartFile);
 
@@ -94,7 +95,6 @@ public class Webview {
     public String result(@RequestParam Long emotion, Model model){
 
         int n = (int) (Math.random() * 3);
-
         if(n == 0){
             List<Menu> menulist = menuService.findByEmotion(emotion);
             model.addAttribute("menulist", menulist);
@@ -107,7 +107,7 @@ public class Webview {
 
             model.addAttribute("playlist", playlist);
             model.addAttribute("musicNum", musicNum);
-
+ 
             return "/playList";
         } else if (n == 2){
             List<Photo> photolist = photoService.findByEmotion(emotion);
