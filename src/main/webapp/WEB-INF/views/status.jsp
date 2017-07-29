@@ -71,7 +71,9 @@
             </div>
             <div class="row">
                 <div class="col-xs-offset-4">
-
+					${emotionText}</br>
+					${emotion} 
+					<a href="result?emotion=${emotion}">듣는약</a>
                 </div>
             </div>
         </div>
