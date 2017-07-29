@@ -11,7 +11,7 @@ import java.util.Arrays;
 @Service
 public class AnalysisService {
 
-    public Long emotionAnalysis(JSONObject jsonObject){
+    public Long emotionAnalysis(JSONObject jsonObject) {
 
         double[] emotions = new double[8];
         String[] keyString = {"anger", "contempt", "disgust", "fear", "happiness", "neutral", "sadness", "surprise"};
