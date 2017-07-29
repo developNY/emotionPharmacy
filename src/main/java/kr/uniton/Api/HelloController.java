@@ -34,6 +34,4 @@ public class HelloController {
     public List<Menu> test(){
         return menuService.test();
     }
-
-
 }
