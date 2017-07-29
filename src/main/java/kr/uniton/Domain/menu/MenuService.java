@@ -18,7 +18,7 @@ public class MenuService {
         return menuRepository.findAll();
     }
 
-    public Menu findByEmotion(long emotion){
+    public Menu findByEmotion(Long emotion){
         return menuRepository.findByEmotion(emotion);
     }
 

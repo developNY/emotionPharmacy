@@ -2,15 +2,16 @@ package kr.uniton.Api;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import kr.uniton.Domain.faceApi.FaceApiService;
 import kr.uniton.Domain.file.FileService;
 import kr.uniton.Domain.menu.Menu;
 import kr.uniton.Domain.menu.MenuService;
+import kr.uniton.Domain.playList.PlayList;
+import kr.uniton.Domain.playList.PlayListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,12 +27,26 @@ public class HelloController {
     private MenuService menuService;
 
     @Autowired
-    private FaceApiService faceApiService;
+    private PlayListService playListService;
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     @ApiOperation(value = "난 누군가" ,notes = "여긴 어딘가")
     public String index(){
         return "유니톤을 왜 했을까?";
+    }
+
+    @RequestMapping(value = "/inputPlaylist", method = RequestMethod.POST)
+    @ApiOperation(value = "input playlist" ,notes = "playlist input")
+    public String inputPlaylist(@ApiParam("emotion") @RequestParam Long emotion, @ApiParam("제목") @RequestParam String title
+    , @ApiParam("가수") @RequestParam String artist, @ApiParam("이미지 URL") @RequestParam String imageUrl, @ApiParam("유투브 URL") @RequestParam String youtubeUrl)
+    {
+        try {
+            playListService.save(PlayList.build(emotion, title, artist, imageUrl, youtubeUrl));
+            return "save success";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "save fail";
+        }
     }
 
 //    @RequestMapping(value = "jpaTest", method = RequestMethod.GET)

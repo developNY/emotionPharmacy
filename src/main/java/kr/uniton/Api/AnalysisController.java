@@ -48,7 +48,7 @@ public class AnalysisController {
 
         Long emotion = analysisService.emotionAnalysis(jsonObject);
 
-        int n = (int) (Math.random()*3);
+        int n = (int)(Math.random() * 3);
         if(n == 0){
             Menu menu = menuService.findByEmotion(emotion);
             model.addAttribute("menu",menu);
@@ -56,7 +56,8 @@ public class AnalysisController {
         } else if (n == 1) {
             List<PlayList> playlist = playListService.findByEmotion(emotion);
 
-            int musicNum = (int)Math.random()*5;
+            int musicNum = (int)Math.random() * playlist.size();
+
             model.addAttribute("playlist", playlist);
             model.addAttribute("musicNum", musicNum);
         }

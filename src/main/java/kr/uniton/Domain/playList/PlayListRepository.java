@@ -9,6 +9,6 @@ import java.util.List;
  * Created by iljun on 2017-07-29.
  */
 @Repository
-public interface PlayListRepository extends JpaRepository<PlayList,Long>{
+public interface PlayListRepository extends JpaRepository<PlayList, Long>{
     List<PlayList> findByEmotion (Long Emotion);
 }
