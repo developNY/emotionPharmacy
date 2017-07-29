@@ -35,4 +35,13 @@ public class PlayList {
     @Column(name = "youtubeUrl")
     private String youtubeUrl;
 
+    public static PlayList build(Long emotion, String title, String artist, String imageUrl, String youtubeUrl) {
+        return PlayList.builder()
+                .emotion(emotion)
+                .title(title)
+                .artist(artist)
+                .imageUrl(imageUrl)
+                .youtubeUrl(youtubeUrl)
+                .build();
+    }
 }
