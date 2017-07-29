@@ -24,4 +24,14 @@ public class Photo {
 
     @Column(name = "emotion")
     private Long emotion;
+
+    @Column(name = "imageUrl")
+    private String imageUrl;
+
+    public static Photo build(Long emotion, String imageUrl) {
+        return Photo.builder()
+                .emotion(emotion)
+                .imageUrl(imageUrl)
+                .build();
+    }
 }

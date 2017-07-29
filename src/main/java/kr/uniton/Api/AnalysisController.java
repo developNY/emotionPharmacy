@@ -6,6 +6,8 @@ import kr.uniton.Domain.analysisApi.AnalysisService;
 import kr.uniton.Domain.faceApi.FaceApiService;
 import kr.uniton.Domain.menu.Menu;
 import kr.uniton.Domain.menu.MenuService;
+import kr.uniton.Domain.photo.Photo;
+import kr.uniton.Domain.photo.PhotoService;
 import kr.uniton.Domain.playList.PlayList;
 import kr.uniton.Domain.playList.PlayListService;
 import org.json.JSONObject;
@@ -37,12 +39,13 @@ public class AnalysisController {
     @Autowired
     private MenuService menuService;
 
+    @Autowired
+    private PhotoService photoService;
+
     @RequestMapping(value = "/analysisPost", method = RequestMethod.POST)
     @ApiOperation(value = "analysisPost", notes = "analysis Face")
 
- public @ResponseBody Long analysisPOST(@RequestBody String faceImageUrl, Model model) throws JSONException
-
-    {
+    public @ResponseBody Long analysisPOST(@RequestBody String faceImageUrl, Model model) throws JSONException {
         String jsonString = faceApiService.faceAnalysis(faceImageUrl);
 
         JSONArray json = new JSONArray(jsonString);
@@ -52,21 +55,28 @@ public class AnalysisController {
         Long emotion = analysisService.emotionAnalysis(jsonObject);
 
         int n = (int)(Math.random() * 3);
-        if(n == 0){
-            Menu menu = menuService.findByEmotion(emotion);
-            model.addAttribute("menu",menu);
 
-        } else if (n == 1) {
+        if(n == 0){
+            List<Menu> menulist = menuService.findByEmotion(emotion);
+            model.addAttribute("menulist", menulist);
+
+        } else if (n == 1){
             List<PlayList> playlist = playListService.findByEmotion(emotion);
 
             int musicNum = (int)Math.random() * playlist.size();
 
             model.addAttribute("playlist", playlist);
             model.addAttribute("musicNum", musicNum);
+
+        } else if (n == 2){
+            List<Photo> photolist = photoService.findByEmotion(emotion);
+            model.addAttribute("photolist", photolist);
+        } else{
+            return null;
         }
 
+        return null;
         // Double resultHappiness = jsonObject.getDouble("happiness");
 
-        return emotion;
     }
 }
