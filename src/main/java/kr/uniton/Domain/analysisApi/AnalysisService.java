@@ -1,5 +1,6 @@
 package kr.uniton.Domain.analysisApi;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +10,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class AnalysisService {
 
-    public Long emotionAnalysis(JSONObject jsonObject) {
+
+    public Long emotionAnalysis(JSONObject jsonObject) throws JSONException{
+
 
         double[] emotions = new double[7];
         String[] keyString = {"anger", "disgust", "fear", "happiness", "neutral", "sadness", "surprise"};

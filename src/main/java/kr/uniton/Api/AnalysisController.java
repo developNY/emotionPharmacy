@@ -10,6 +10,7 @@ import kr.uniton.Domain.playList.PlayList;
 import kr.uniton.Domain.playList.PlayListService;
 import org.json.JSONObject;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -38,7 +39,7 @@ public class AnalysisController {
 
     @RequestMapping(value = "/analysisPost", method = RequestMethod.POST)
     @ApiOperation(value = "analysisPost", notes = "analysis Face")
-    public String analysisPOST(@RequestBody String faceImageUrl, Model model)
+    public @ResponseBody Long analysisPOST(@RequestBody String faceImageUrl, Model model) throws JSONException
     {
         String jsonString = faceApiService.faceAnalysis(faceImageUrl);
 
