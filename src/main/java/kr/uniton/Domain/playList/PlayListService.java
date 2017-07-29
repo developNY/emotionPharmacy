@@ -17,4 +17,6 @@ public class PlayListService {
     public List<PlayList> findByEmotion (Long emotion) {
         return playListRepository.findByEmotion(emotion);
     }
+
+    public void save(PlayList playList){ playListRepository.save(playList); }
 }
