@@ -39,9 +39,4 @@ public class HelloController {
     public List<Menu> test(){
         return menuService.test();
     }
-
-    @RequestMapping(value = "/apiTest", method = RequestMethod.GET)
-    public String apiTest(){
-        return faceApiService.test();
-    }
 }

@@ -25,7 +25,7 @@ public class AnalysisController {
 
     @RequestMapping(value = "/analysisPost", method = RequestMethod.POST)
     @ApiOperation(value = "analysisPost", notes = "analysis Face")
-    public @ResponseBody Double analysisPOST(@RequestBody String faceImageUrl)
+    public @ResponseBody Long analysisPOST(@RequestBody String faceImageUrl)
     {
         String jsonString = faceApiService.faceAnalysis(faceImageUrl);
 
@@ -38,6 +38,6 @@ public class AnalysisController {
 
         // Double resultHappiness = jsonObject.getDouble("happiness");
 
-        return resultHappiness;
+        return emotion;
     }
 }
