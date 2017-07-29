@@ -70,11 +70,10 @@ public class HelloController {
 
     @RequestMapping(value = "/inputPhoto", method = RequestMethod.POST)
     @ApiOperation(value = "input Photo" ,notes = "photo input")
-    public String inputPhoto(@ApiParam("emotion") @RequestParam Long emotion, @ApiParam("이름") @RequestParam String name,
-                            @ApiParam("이미지 URL") @RequestParam String imageUrl)
+    public String inputPhoto(@ApiParam("emotion") @RequestParam Long emotion, @ApiParam("이미지 URL") @RequestParam String imageUrl)
     {
         try {
-            photoService.save(Photo.build(emotion, name, imageUrl));
+            photoService.save(Photo.build(emotion, imageUrl));
             return "save success";
         } catch (Exception e) {
             e.printStackTrace();
