@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -11,7 +12,7 @@
             box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.21);
         }
         .layer {
-            font-family: . AppleSDGothicNeoI;
+            font-family: AppleSDGothicNeoI;
             font-size: 12px;
             text-align: center;
             color: #2046f2;
@@ -29,7 +30,7 @@
             background-repeat: no-repeat;
         }
         .b{
-            background: url('logo.png');
+            background: url('finalLogo.png');
             background-size:100% 100%;
 
             height:40px;
@@ -47,6 +48,13 @@
             margin-top: 20%;
             margin-left:43%;
         }
+        .xxxxx{
+            text-align: center;
+        }
+        .xxxxx1{
+            text-align: center;
+        }
+
     </style>
 </head>
 <body>
@@ -66,7 +74,36 @@
                 <div class="xxxx">
                 </div>
                 <div class="icon">
-                    <a href="http://localhost:8082/result?emotion=${ emotion }">hihihi</a>
+                   <!-- <c:choose>
+                        <c:when test="${n eq 0}">
+                            <img src="prescription_button_food.png" >
+                        </c:when>
+                        <c:when test="${n eq 1}">
+                            <img src="prescription_button_music.png" >
+                        </c:when>
+                        <c:when test="${n eq 2}">
+                            <img src="prescription_button_image.png" >
+                        </c:when>
+                    </c:choose> -->
+                </div>
+                <div class="xxxxx">
+                    당신의 기분은 지금 </br> <strong>${emotionText}</strong>
+                </div>
+                <div>
+                    <c:choose>
+                        <c:when test="${n == 0}">
+                            <img src="prescription_button_food.png" width="100%" height="25%">
+                        </c:when>
+                        <c:when test="${n == 1}">
+                            <img src="prescription_button_music.png" width="100%" height="25%">
+                        </c:when>
+                        <c:when test="${n == 2}">
+                            <img src="prescription_button_image.png" width="100%" height="25%">
+                        </c:when>
+                    </c:choose>
+                </div>
+                <div class="xxxxx1">
+                    처방을 드려요
                 </div>
             </div>
             <div class="row">

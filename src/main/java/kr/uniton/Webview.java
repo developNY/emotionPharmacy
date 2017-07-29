@@ -82,6 +82,8 @@ public class Webview {
 
         model.addAttribute("emotion", emotion);
         model.addAttribute("emotionText", emotionText[new Integer(emotion.intValue())]);
+        int n = (int) (Math.random() * 3);
+        model.addAttribute("n", n);
         /*if(emotionId)
             model.add(emotionId) --> emotionId 저장
         */
@@ -91,7 +93,7 @@ public class Webview {
     @RequestMapping(value = "/result", method = RequestMethod.GET)
     public String result(@RequestParam Long emotion, Model model){
 
-        int n = (int)(Math.random() * 3);
+        int n = (int) (Math.random() * 3);
 
         n = 1;
 
