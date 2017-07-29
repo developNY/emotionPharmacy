@@ -14,7 +14,13 @@ public class MenuService {
     @Autowired
     private MenuRepository menuRepository;
 
-    public List<Menu> test(){
+    public List<Menu> findAll(){
         return menuRepository.findAll();
     }
+
+    public Menu findByEmotion(long emotion){
+        return menuRepository.findByEmotion(emotion);
+    }
+
+
 }

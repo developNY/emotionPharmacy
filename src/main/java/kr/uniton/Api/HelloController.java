@@ -34,9 +34,9 @@ public class HelloController {
         return "유니톤을 왜 했을까?";
     }
 
-    @RequestMapping(value = "jpaTest", method = RequestMethod.GET)
-    @ApiOperation(value = "jpaTest", notes = "jpaTest")
-    public List<Menu> test(){
-        return menuService.test();
-    }
+//    @RequestMapping(value = "jpaTest", method = RequestMethod.GET)
+//    @ApiOperation(value = "jpaTest", notes = "jpaTest")
+//    public List<Menu> test(){
+//        return menuService.test();
+//    }
 }

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class AnalysisService {
 
-    public Long emotionAnalysis(JSONObject jsonObject){
+    public Long emotionAnalysis(JSONObject jsonObject) {
 
         double[] emotions = new double[7];
         String[] keyString = {"anger", "disgust", "fear", "happiness", "neutral", "sadness", "surprise"};
