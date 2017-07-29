@@ -83,15 +83,28 @@ public class Webview {
 
         model.addAttribute("emotion", emotion);
         model.addAttribute("emotionText", emotionText[new Integer(emotion.intValue())]);
+<<<<<<< HEAD
    
+=======
+        int n = (int) (Math.random() * 3);
+        model.addAttribute("n", n);
+        /*if(emotionId)
+            model.add(emotionId) --> emotionId 저장
+        */
+>>>>>>> 4a2e587bc3a1103a5fdd9943b75adfe65c146a33
         return "/status";
     }
 
     @RequestMapping(value = "/result", method = RequestMethod.GET)
     public String result(@RequestParam Long emotion, Model model){
 
+<<<<<<< HEAD
         //int n = (int)(Math.random() * 3);
         int n = 1;
+=======
+        int n = (int) (Math.random() * 3);
+
+>>>>>>> 4a2e587bc3a1103a5fdd9943b75adfe65c146a33
         if(n == 0){
             List<Menu> menulist = menuService.findByEmotion(emotion);
             model.addAttribute("menulist", menulist);
