@@ -60,12 +60,5 @@
 		</tr>
 	</table>
 	</div>
-	<script>
-		$(function(){
-			$("#emotion").click(function(){
-				$("#presc").attr(display:"inline-block");
-			});
-		})
-	</script>
 </body>
 </html>

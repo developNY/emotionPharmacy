@@ -90,8 +90,8 @@ public class Webview {
     @RequestMapping(value = "/result", method = RequestMethod.GET)
     public String result(@RequestParam Long emotion, Model model){
 
-        int n = (int)(Math.random() * 3);
-
+        //int n = (int)(Math.random() * 3);
+        int n = 1;
         if(n == 0){
             List<Menu> menulist = menuService.findByEmotion(emotion);
             model.addAttribute("menulist", menulist);
@@ -104,7 +104,7 @@ public class Webview {
 
             model.addAttribute("playlist", playlist);
             model.addAttribute("musicNum", musicNum);
-
+ 
             return "/playList";
         } else if (n == 2){
             List<Photo> photolist = photoService.findByEmotion(emotion);
